@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -10,6 +8,7 @@ class UCapsuleComponent;
 class USkeletalMeshComponent;
 class USpringArmComponent;
 class UCameraComponent;
+struct FInputActionValue;
 
 UCLASS()
 class HW07_API AMyPawn : public APawn
@@ -17,11 +16,9 @@ class HW07_API AMyPawn : public APawn
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
 	AMyPawn();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Character")
 	UCapsuleComponent* CapsuleComponent;
@@ -34,10 +31,19 @@ protected:
 	UCameraComponent* CameraComp;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	
+	UFUNCTION()
+	void Jump(const FInputActionValue& value);
+	UFUNCTION()
+	void Move(const FInputActionValue& value);
+	UFUNCTION()
+	void Look(const FInputActionValue& value);
 
+	FVector Velocity;
+	bool bIsJumping;
+	float Gravity;
+	float JumpStrength;
+	float GroundZ;
 };

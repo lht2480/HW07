@@ -48,6 +48,9 @@
     <ClCompile Include="..\..\Source\HW07\Private\MyPawn.cpp">
       <Filter>Source\HW07\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\HW07\Private\MyPlayerController.cpp">
+      <Filter>Source\HW07\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\HW07\Public">
       <UniqueIdentifier>{DAD5EBE2-B463-38EB-8172-75B3B7AF9D05}</UniqueIdentifier>
     </Filter>
@@ -55,6 +58,9 @@
       <Filter>Source\HW07\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\HW07\Public\MyPawn.h">
+      <Filter>Source\HW07\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\HW07\Public\MyPlayerController.h">
       <Filter>Source\HW07\Public</Filter>
     </ClCompile>
   </ItemGroup>

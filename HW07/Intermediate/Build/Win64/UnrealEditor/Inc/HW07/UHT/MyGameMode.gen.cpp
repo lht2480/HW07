@@ -76,7 +76,6 @@ template<> HW07_API UClass* StaticClass<AMyGameMode>()
 {
 	return AMyGameMode::StaticClass();
 }
-AMyGameMode::AMyGameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(AMyGameMode);
 AMyGameMode::~AMyGameMode() {}
 // End Class AMyGameMode

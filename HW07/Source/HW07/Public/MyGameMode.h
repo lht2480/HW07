@@ -14,4 +14,6 @@ class HW07_API AMyGameMode : public AGameMode
 {
 	GENERATED_BODY()
 	
+public:
+	AMyGameMode();
 };
