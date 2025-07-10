@@ -25,18 +25,17 @@ AMyPawn::AMyPawn()
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	SpringArmComp->SetupAttachment(RootComponent);
 	SpringArmComp->TargetArmLength = 300.0f;
-	SpringArmComp->bUsePawnControlRotation = true;
+	SpringArmComp->bUsePawnControlRotation = false;
 
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	CameraComp->SetupAttachment(SpringArmComp, USpringArmComponent::SocketName);
 	CameraComp->bUsePawnControlRotation = false;
 
-	bUseControllerRotationYaw = true;
-
 	MovementComponent = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("MovementComponent"));
 
 	CapsuleComponent->SetSimulatePhysics(false);
 	SkeletalMeshComponent->SetSimulatePhysics(false);
+	bUseControllerRotationYaw = false;
 
 	Gravity = -980.0f;
 	JumpStrength = 400.0f;
@@ -102,28 +101,33 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void AMyPawn::Move(const FInputActionValue& value)
 {
-	if (!Controller) return;
-
 	const FVector2D MoveInput = value.Get<FVector2D>();
+	if (MoveInput.IsNearlyZero()) return;
 
-	if (!FMath::IsNearlyZero(MoveInput.X))
-	{
-		AddMovementInput(GetActorForwardVector(), MoveInput.X);
-	}
+	FVector MoveDirection = FVector::ZeroVector;
 
-	if (!FMath::IsNearlyZero(MoveInput.Y))
-	{
-		AddMovementInput(GetActorRightVector(), MoveInput.Y);
-	}
+	MoveDirection += GetActorForwardVector() * MoveInput.X;
+	MoveDirection += GetActorRightVector() * MoveInput.Y;
 
+	const float Speed = 600.f;
+	AddActorLocalOffset(MoveDirection * Speed * GetWorld()->GetDeltaSeconds(), true);
 }
 
 void AMyPawn::Look(const FInputActionValue& value)
 {
-	FVector2D LookInput = value.Get<FVector2D>();
+	const FVector2D LookInput = value.Get<FVector2D>();
+	if (LookInput.IsNearlyZero()) return;
 
-	AddControllerYawInput(LookInput.X);
-	AddControllerPitchInput(LookInput.Y);
+	const float YawSensitivity = 2.0f;
+	const float PitchSensitivity = 2.0f;
+
+	FRotator CurrentRotation = GetActorRotation();
+	CurrentRotation.Yaw += LookInput.X * YawSensitivity;
+	SetActorRotation(CurrentRotation);
+
+	FRotator SpringArmRot = SpringArmComp->GetRelativeRotation();
+	SpringArmRot.Pitch = FMath::Clamp(SpringArmRot.Pitch + LookInput.Y * PitchSensitivity, -80.0f, 80.0f);
+	SpringArmComp->SetRelativeRotation(SpringArmRot);
 }
 
 void AMyPawn::Jump(const FInputActionValue& value)
