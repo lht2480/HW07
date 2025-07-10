@@ -4,6 +4,6 @@
 
 AMyGameMode::AMyGameMode()
 {
-	DefaultPawnClass = AMyGameMode::StaticClass();
+	DefaultPawnClass = AMyPawn::StaticClass();
 	PlayerControllerClass = AMyPlayerController::StaticClass();
 }

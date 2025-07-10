@@ -29,9 +29,6 @@ struct Z_Construct_UClass_AMyGameMode_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
 		{ "IncludePath", "MyGameMode.h" },
 		{ "ModuleRelativePath", "Public/MyGameMode.h" },
@@ -84,10 +81,10 @@ AMyGameMode::~AMyGameMode() {}
 struct Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyGameMode, AMyGameMode::StaticClass, TEXT("AMyGameMode"), &Z_Registration_Info_UClass_AMyGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyGameMode), 191783835U) },
+		{ Z_Construct_UClass_AMyGameMode, AMyGameMode::StaticClass, TEXT("AMyGameMode"), &Z_Registration_Info_UClass_AMyGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyGameMode), 4167325623U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_4246228290(TEXT("/Script/HW07"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_1720148460(TEXT("/Script/HW07"),
 	Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

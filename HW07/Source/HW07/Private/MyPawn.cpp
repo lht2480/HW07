@@ -9,6 +9,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputMappingContext.h"
 #include "InputAction.h"
+#include "GameFramework/FloatingPawnMovement.h"
 
 AMyPawn::AMyPawn()
 {
@@ -29,6 +30,10 @@ AMyPawn::AMyPawn()
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	CameraComp->SetupAttachment(SpringArmComp, USpringArmComponent::SocketName);
 	CameraComp->bUsePawnControlRotation = false;
+
+	bUseControllerRotationYaw = true;
+
+	MovementComponent = CreateDefaultSubobject<UFloatingPawnMovement>(TEXT("MovementComponent"));
 
 	CapsuleComponent->SetSimulatePhysics(false);
 	SkeletalMeshComponent->SetSimulatePhysics(false);

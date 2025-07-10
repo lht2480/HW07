@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define HW07_MyGameMode_generated_h
 
-#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_15_INCLASS_NO_PURE_DECLS \
+#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_10_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAMyGameMode(); \
 	friend struct Z_Construct_UClass_AMyGameMode_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(AMyGameMode)
 
 
-#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_15_ENHANCED_CONSTRUCTORS \
+#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_10_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AMyGameMode(AMyGameMode&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~AMyGameMode();
 
 
-#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_12_PROLOG
-#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_15_GENERATED_BODY \
+#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_7_PROLOG
+#define FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_10_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_15_INCLASS_NO_PURE_DECLS \
-	FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_15_ENHANCED_CONSTRUCTORS \
+	FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_10_INCLASS_NO_PURE_DECLS \
+	FID_GitClone_HW07_HW07_Source_HW07_Public_MyGameMode_h_10_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
