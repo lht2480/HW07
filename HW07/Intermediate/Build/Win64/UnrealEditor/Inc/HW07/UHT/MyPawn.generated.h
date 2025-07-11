@@ -16,6 +16,8 @@ struct FInputActionValue;
 #define HW07_MyPawn_generated_h
 
 #define FID_GitClone_HW07_HW07_Source_HW07_Public_MyPawn_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execStopSprint); \
+	DECLARE_FUNCTION(execStartSprint); \
 	DECLARE_FUNCTION(execLook); \
 	DECLARE_FUNCTION(execJump); \
 	DECLARE_FUNCTION(execMove);

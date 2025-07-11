@@ -41,6 +41,11 @@ AMyPawn::AMyPawn()
 	JumpStrength = 400.0f;
 	bIsJumping = false;
 	GroundZ = 0.0f;
+
+	NormalSpeed = 600;
+	SprintSpeedMultiplier = 1.7;
+	SprintSpeed = NormalSpeed * SprintSpeedMultiplier;
+	MovementComponent->MaxSpeed = NormalSpeed;
 }
 
 void AMyPawn::BeginPlay()
@@ -95,6 +100,12 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 			{
 				EnhancedInput->BindAction(PlayerController->LookAction, ETriggerEvent::Triggered, this, &AMyPawn::Look);
 			}
+
+			if (PlayerController->SprintAction)
+			{
+				EnhancedInput->BindAction(PlayerController->SprintAction, ETriggerEvent::Started, this, &AMyPawn::StartSprint);
+				EnhancedInput->BindAction(PlayerController->SprintAction, ETriggerEvent::Completed, this, &AMyPawn::StopSprint);
+			}
 		}
 	}
 }
@@ -104,13 +115,12 @@ void AMyPawn::Move(const FInputActionValue& value)
 	const FVector2D MoveInput = value.Get<FVector2D>();
 	if (MoveInput.IsNearlyZero()) return;
 
-	FVector MoveDirection = FVector::ZeroVector;
+	const FVector ForwardDirection = GetActorForwardVector();
+	const FVector RightDirection = GetActorRightVector();
 
-	MoveDirection += GetActorForwardVector() * MoveInput.X;
-	MoveDirection += GetActorRightVector() * MoveInput.Y;
+	FVector WorldMoveDirction = (ForwardDirection * MoveInput.X) + (RightDirection * MoveInput .Y);
 
-	const float Speed = 600.f;
-	AddActorLocalOffset(MoveDirection * Speed * GetWorld()->GetDeltaSeconds(), true);
+	AddActorWorldOffset(WorldMoveDirction * MovementComponent->MaxSpeed * GetWorld()->GetDeltaSeconds(), true);
 }
 
 void AMyPawn::Look(const FInputActionValue& value)
@@ -119,7 +129,7 @@ void AMyPawn::Look(const FInputActionValue& value)
 	if (LookInput.IsNearlyZero()) return;
 
 	const float YawSensitivity = 2.0f;
-	const float PitchSensitivity = 2.0f;
+	const float PitchSensitivity = -2.0f;
 
 	FRotator CurrentRotation = GetActorRotation();
 	CurrentRotation.Yaw += LookInput.X * YawSensitivity;
@@ -136,5 +146,21 @@ void AMyPawn::Jump(const FInputActionValue& value)
 	{
 		bIsJumping = true;
 		Velocity.Z = JumpStrength;
+	}
+}
+
+void AMyPawn::StartSprint(const FInputActionValue& value)
+{
+	if (MovementComponent)
+	{
+		MovementComponent->MaxSpeed = SprintSpeed;
+	}
+}
+
+void AMyPawn::StopSprint(const FInputActionValue& value)
+{
+	if (MovementComponent)
+	{
+		MovementComponent->MaxSpeed = NormalSpeed;
 	}
 }

@@ -158,6 +158,96 @@ DEFINE_FUNCTION(AMyPawn::execMove)
 }
 // End Class AMyPawn Function Move
 
+// Begin Class AMyPawn Function StartSprint
+struct Z_Construct_UFunction_AMyPawn_StartSprint_Statics
+{
+	struct MyPawn_eventStartSprint_Parms
+	{
+		FInputActionValue value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/MyPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMyPawn_StartSprint_Statics::NewProp_value = { "value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPawn_eventStartSprint_Parms, value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_value_MetaData), NewProp_value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyPawn_StartSprint_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPawn_StartSprint_Statics::NewProp_value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPawn_StartSprint_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPawn_StartSprint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPawn, nullptr, "StartSprint", nullptr, nullptr, Z_Construct_UFunction_AMyPawn_StartSprint_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPawn_StartSprint_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyPawn_StartSprint_Statics::MyPawn_eventStartSprint_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPawn_StartSprint_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPawn_StartSprint_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AMyPawn_StartSprint_Statics::MyPawn_eventStartSprint_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AMyPawn_StartSprint()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPawn_StartSprint_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyPawn::execStartSprint)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->StartSprint(Z_Param_Out_value);
+	P_NATIVE_END;
+}
+// End Class AMyPawn Function StartSprint
+
+// Begin Class AMyPawn Function StopSprint
+struct Z_Construct_UFunction_AMyPawn_StopSprint_Statics
+{
+	struct MyPawn_eventStopSprint_Parms
+	{
+		FInputActionValue value;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/MyPawn.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_value_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_value;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMyPawn_StopSprint_Statics::NewProp_value = { "value", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(MyPawn_eventStopSprint_Parms, value), Z_Construct_UScriptStruct_FInputActionValue, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_value_MetaData), NewProp_value_MetaData) }; // 494646648
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMyPawn_StopSprint_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMyPawn_StopSprint_Statics::NewProp_value,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPawn_StopSprint_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMyPawn_StopSprint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMyPawn, nullptr, "StopSprint", nullptr, nullptr, Z_Construct_UFunction_AMyPawn_StopSprint_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPawn_StopSprint_Statics::PropPointers), sizeof(Z_Construct_UFunction_AMyPawn_StopSprint_Statics::MyPawn_eventStopSprint_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMyPawn_StopSprint_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMyPawn_StopSprint_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AMyPawn_StopSprint_Statics::MyPawn_eventStopSprint_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AMyPawn_StopSprint()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AMyPawn_StopSprint_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AMyPawn::execStopSprint)
+{
+	P_GET_STRUCT_REF(FInputActionValue,Z_Param_Out_value);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->StopSprint(Z_Param_Out_value);
+	P_NATIVE_END;
+}
+// End Class AMyPawn Function StopSprint
+
 // Begin Class AMyPawn
 void AMyPawn::StaticRegisterNativesAMyPawn()
 {
@@ -166,6 +256,8 @@ void AMyPawn::StaticRegisterNativesAMyPawn()
 		{ "Jump", &AMyPawn::execJump },
 		{ "Look", &AMyPawn::execLook },
 		{ "Move", &AMyPawn::execMove },
+		{ "StartSprint", &AMyPawn::execStartSprint },
+		{ "StopSprint", &AMyPawn::execStopSprint },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -219,6 +311,8 @@ struct Z_Construct_UClass_AMyPawn_Statics
 		{ &Z_Construct_UFunction_AMyPawn_Jump, "Jump" }, // 4064082376
 		{ &Z_Construct_UFunction_AMyPawn_Look, "Look" }, // 1206967726
 		{ &Z_Construct_UFunction_AMyPawn_Move, "Move" }, // 3756847780
+		{ &Z_Construct_UFunction_AMyPawn_StartSprint, "StartSprint" }, // 3224428093
+		{ &Z_Construct_UFunction_AMyPawn_StopSprint, "StopSprint" }, // 3607483847
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -279,10 +373,10 @@ AMyPawn::~AMyPawn() {}
 struct Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyPawn_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMyPawn, AMyPawn::StaticClass, TEXT("AMyPawn"), &Z_Registration_Info_UClass_AMyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPawn), 2873107942U) },
+		{ Z_Construct_UClass_AMyPawn, AMyPawn::StaticClass, TEXT("AMyPawn"), &Z_Registration_Info_UClass_AMyPawn, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMyPawn), 251615955U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyPawn_h_1144537773(TEXT("/Script/HW07"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyPawn_h_2728368325(TEXT("/Script/HW07"),
 	Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyPawn_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitClone_HW07_HW07_Source_HW07_Public_MyPawn_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -34,6 +34,8 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
 	UCameraComponent* CameraComp;
 
+
+
 public:	
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -44,10 +46,18 @@ public:
 	void Jump(const FInputActionValue& value);
 	UFUNCTION()
 	void Look(const FInputActionValue& value);
+	UFUNCTION()
+	void StartSprint(const FInputActionValue& value);
+	UFUNCTION()
+	void StopSprint(const FInputActionValue& value);
 
 	FVector Velocity;
 	bool bIsJumping;
 	float Gravity;
 	float JumpStrength;
 	float GroundZ;
+
+	float NormalSpeed;
+	float SprintSpeedMultiplier;
+	float SprintSpeed;
 };
